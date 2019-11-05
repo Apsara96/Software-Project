@@ -64,4 +64,12 @@ export class DevRegisterComponent implements OnInit {
     this.load=true
   } 
 
+  checkPwd(){
+    if(this.credentials.password.length < 6){
+      return true
+    }else{
+      return false
+    }
+  }
+
 }

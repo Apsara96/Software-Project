@@ -1,3 +1,5 @@
+
+<div style="background-color: #e3d5f3; padding-bottom: 10px;">
 <div class="container">
 
     <button (click)="backToHome()">&lt;&lt;&lt;Back to home</button>
@@ -44,7 +46,7 @@
           <br><br>
           <form (submit)="sendBid()">
               <label>Enter the bid value:</label>
-              <input type="number" name="bid_value" [(ngModel)]="credentials.bid_value">&nbsp;&nbsp;
+              <input type="text" pattern="\d*" maxlength="project.bid.maximum_value" name="bid_value" [(ngModel)]="credentials.bid_value">&nbsp;&nbsp;
               <button type="submit">Send the bid</button>
             </form>
           </div>
@@ -53,10 +55,10 @@
           <div *ngIf="marked2">
             <br><br>
             Your bid value: {{ bids?.bid_value }}
-            <form (submit)="bidAgain()">
+            <form >
                 <label>Enter the bid value:</label>
                 <input type="number" name="bid_value" [(ngModel)]="credentials.bid_value">&nbsp;&nbsp;
-                <button type="submit">Bid again</button>
+                <button (click)="bidAgain()">Bid again</button>
                 <button  (click)="deleteBid()">Delete the bid</button>
               </form>
           </div>
@@ -65,7 +67,7 @@
   </table>
 
 
-  <img src="{{authHome.img_link}}{{ project?.user.profile_img }}" width="10%" heigt="10%">
+  <img src="{{authHome.img_link}}{{ project?.user.profile_img }}" width="200px" height="200px">
   <a (click)="gotoChat()" routerLink="/devCatagory/chat"><img src="../../../assets/img/chat.png" width="5%" heigt="5%" style="margin-left: 5%"></a>
     
 
@@ -92,4 +94,6 @@
         <td>{{ project?.user.contact_no }}</td>
       </tr>
     </table>
+</div>
+
 </div>

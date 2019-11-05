@@ -118,6 +118,8 @@ export class DevViewMyProjectComponent implements OnInit {
 
   cancleRequest(){
 
+    if(window.confirm('Do you want to cancle the request?')){
+
     this.authHome.cancleRequest(this.requestProject).subscribe(
         request=>{
             window.location.reload()
@@ -126,39 +128,46 @@ export class DevViewMyProjectComponent implements OnInit {
           console.log(err)
         }
     )
+    }
 
   }
 
 
   bidAgain(){
 
+    if(window.confirm('Do you want to edit the bid?')){
+
     this.authHome.editBid(this.credentials).subscribe(
       result=>{
+        window.alert('You have successfully updated bid!')
+        this.ngOnInit()
       },
       err=>{
         console.log(err)
       }
     )
-
-    this.ngOnInit()
-    this.ngOnInit()
+    }
     
   }
 
 
   deleteBid(){
 
+    if(window.confirm('Do you want to delete the bid?')){
+
     this.authHome.deleteBid(this.viewdetails).subscribe(
       ()=>{
-
+        window.location.reload();
       },
       err=>{
         console.log(err)
       }
     )
 
-    window.location.reload();
+
   }
+
+}
 
 }
 

@@ -61,7 +61,11 @@ export class ViewClientRequestComponent implements OnInit {
 
     this.authNot.acceptRequestDeveloper(this.request_data).subscribe(
       result=>{
-        this.ngOnInit()
+        if(result.success == 1){
+          this.ngOnInit()
+        }else{
+          window.alert('The project is already accepted by another user')
+        }
       },
       err=>{
         console.log(err)

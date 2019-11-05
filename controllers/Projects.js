@@ -170,6 +170,7 @@ exports.edit_pro = (req,res)=>{
         }
     })
 
+    res.json({success:1})
 }
 
 

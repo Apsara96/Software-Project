@@ -1,19 +1,19 @@
-<div  style="background-color: #e3d5f3;">
+<div  style="background-color: #e3d5f3;padding-bottom: 150px;">
 
 <div class="container">
   <div class="row">
 
-    <div class="col mx-auto">
+    <div class="col-4">
 
-      <img src="http://localhost:3000/{{ details?.profile_img}}" width="50%" height="50%" class="img1"><br>
-      <label><img src="assets/img/cam2.png" width="10%" height="10%" class="img2" />
+      <img src="http://localhost:3000/{{ details?.profile_img}}" width="250px" height="250px" class="img1"><br>
+      <label><img src="assets/img/cam2.png" width="15%" height="15%" class="img2" />
         <input type="file" name="profile_image" accept="image/*" (change)="onFileSelected($event)">
       </label>
     </div>
-      <div class="col mx-auto">
+      <div class="col-5">
       <div *ngIf="marked1">
 
-        <table class="table">
+        <table class="table" style="font-size: 25px;">
           <tr>
             
             <td><b>{{ details?.first_name }} {{ details?.last_name }}</b></td>

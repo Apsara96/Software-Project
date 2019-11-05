@@ -16,6 +16,10 @@ export class AddProjectComponent implements OnInit {
   marked2 = false
   marked3 = false
 
+  catagory=['Web development','Mobile development','Data science',
+'Software development','Block chain','Machine learning','Natural language processing',
+'Digital marketing','Multimedia designing','Robotics']
+
   constructor(
     private authPro: AuthProjectService,
     private router: Router,
@@ -35,7 +39,7 @@ export class AddProjectComponent implements OnInit {
     id: 0,
     client_ID: 0,
     project_name: '',
-    project_category: '',
+    project_category: 'Other',
     project_description: '',
     payment: ''
 

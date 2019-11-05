@@ -1,5 +1,5 @@
 
-
+<div style="background-color: #e3d5f3;padding-bottom: 10px;">
 <div class="container">
 
   <button (click)="BackToHome()">&lt;&lt;&lt;Back to Home</button>
@@ -7,8 +7,8 @@
   <div class="col-md-6 mx-left">
     <h1 class="text-center">PROFILE</h1>
   </div>
-  <img src="{{authHome.img_link}}{{ developer?.profile_img }}"  width="20%" heigt="20%">
-  <a (click)="gotoChat()" routerLink="/cliCatagory/chat"><img src="../../../assets/img/chat.png" width="5%" heigt="5%" style="margin-left: -5%;margin-top: 5%"></a>
+  <img src="{{authHome.img_link}}{{ developer?.profile_img }}"  width="200px" heigt="200px">
+  <a (click)="gotoChat()" routerLink="/cliCatagory/chat"><img src="../../../assets/img/chat.png" width="70px" height="70px" style="margin-left: 0%;margin-top: 5%"></a>
 
   <table class="table col-md-6 mx-left">
     <tr>
@@ -73,5 +73,7 @@
   
       <button (click)="requestDeveloper()">Request</button>
   </div>
+
+</div>
 
 </div>

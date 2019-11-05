@@ -217,7 +217,7 @@ export class DevViewProjectComponent implements OnInit {
 
     this.requestProject.developer_ID=this.auth.getUserDetails().id
 
-      this.requestProject.project_ID = this.devHome.project_ID
+    this.requestProject.project_ID = this.devHome.project_ID
 
     this.authHome.cancleRequest(this.requestProject).subscribe(
         request=>{
@@ -264,15 +264,14 @@ export class DevViewProjectComponent implements OnInit {
     this.credentials.project_ID = this.devHome.project_ID
 
     this.authHome.editBid(this.credentials).subscribe(
-      ()=>{
-        
+      result=>{
+        this.ngOnInit()
       },
       err=>{
         console.log(err)
       }
     )
 
-    this.ngOnInit()
     }
   }
 
@@ -280,23 +279,20 @@ export class DevViewProjectComponent implements OnInit {
   deleteBid(){
 
     if(window.confirm('Do you want to delete bid?')){
-    this.route.queryParams.subscribe(params => {
-      this.viewdetails.project_ID = params['pro_id'];
-      this.viewdetails.client_ID = params['cli_id'];
-    })
 
     this.viewdetails.developer_ID=this.auth.getUserDetails().id
+    this.viewdetails.project_ID = this.devHome.project_ID
 
     this.authHome.deleteBid(this.viewdetails).subscribe(
-      ()=>{
-
+      result=>{
+        window.location.reload();
       },
       err=>{
         console.log(err)
       }
     )
 
-    window.location.reload();
+
     }
   }
 

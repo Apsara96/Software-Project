@@ -54,6 +54,8 @@ exports.edit_bid = (req,res)=>{
             developer_ID: req.body.developer_ID
         }
     })
+
+    res.json({success:1})
 }
 
 
@@ -66,6 +68,8 @@ exports.delete_bid = (req,res)=>{
         }
 
     })
+
+    res.json({success:1})
 }
 
 

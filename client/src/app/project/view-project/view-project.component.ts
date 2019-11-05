@@ -75,6 +75,10 @@ export class ViewProjectComponent implements OnInit {
 
   set1 = true
 
+  catagory=['Web development','Mobile development','Data science',
+  'Software development','Block chain','Machine learning','Natural language processing',
+  'Digital marketing','Multimedia designing','Robotics']
+
   constructor(
     private router: Router,
     private authpro: AuthProjectService,
@@ -173,8 +177,8 @@ export class ViewProjectComponent implements OnInit {
 
 
     this.authpro.editProject(this.credentials).subscribe(
-      () => {
-
+      result => {
+        this.ngOnInit()
       },
       err => {
         console.error(err);
@@ -183,16 +187,14 @@ export class ViewProjectComponent implements OnInit {
 
     if (this.credentials.payment == '') {
       this.authpro.editBid(this.credential).subscribe(
-        () => {
-
+        result => {
+          this.ngOnInit()
         },
         err => {
           console.error(err);
         }
       )
     }
-
-    this.ngOnInit()
     this.marked1 = true
     this.marked2 = false
   }
@@ -218,6 +220,8 @@ export class ViewProjectComponent implements OnInit {
 
 
   AcceptProReq(dev_ID: number, category: string) {
+
+    if(window.confirm('Do you want to accept the request?')){
     this.confirmedPro.developer_ID = dev_ID
     this.confirmedPro.client_ID = this.auth.getUserDetails().id
     this.confirmedPro.project_ID = this.credentials.id
@@ -228,10 +232,12 @@ export class ViewProjectComponent implements OnInit {
         window.location.reload()
       }
     )
+    }
 
   }
 
   AcceptBidReq(dev_ID: number, category: string) {
+    if(window.confirm('Do you want to accept the Bid?')){
     this.confirmedPro.developer_ID = dev_ID
     this.confirmedPro.client_ID = this.auth.getUserDetails().id
     this.confirmedPro.project_ID = this.credentials.id
@@ -242,6 +248,7 @@ export class ViewProjectComponent implements OnInit {
         window.location.reload()
       }
     )
+    }
 
   }
 

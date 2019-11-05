@@ -1,4 +1,4 @@
-
+<div  style="background-color: #e3d5f3; padding-bottom: 10px;">
   <div class="container">
 
       <div class="viewmore"> <a style=" color: red; margin: 2px 4px 2px 4px ;" (click)="back()">
@@ -67,8 +67,8 @@
 </table>
 
 
-<img src="{{authHome.img_link}}{{ project?.user.profile_img }}" width="10%" heigt="10%">
-  <a (click)="gotoChat()" routerLink="/devCatagory/chat"><img src="../../../assets/img/chat.png" width="5%" heigt="5%" style="margin-left: 5%"></a>
+<img src="{{authHome.img_link}}{{ project?.user.profile_img }}" width="200px" height="200px">
+  <a (click)="gotoChat()" routerLink="/devCatagory/chat"><img src="../../../assets/img/chat.png" width="5%" height="5%" style="margin-left: 5%"></a>
 
 
   <table class="table col-md-6 mx-left">
@@ -94,5 +94,7 @@
       <td>{{ project?.user.contact_no }}</td>
     </tr>
   </table>
+
+</div>
 
 </div>
