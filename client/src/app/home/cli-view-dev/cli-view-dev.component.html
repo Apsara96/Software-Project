@@ -48,7 +48,9 @@
     <div *ngIf="marked1">
     <select [(ngModel)]="credentials.project_ID">
       <option *ngFor="let project of projects" [value]="project.id">
+        <div *ngIf="project?.payment > 0">
           {{ project?.project_name }}
+        </div>
       </option>
     </select>
 
@@ -63,7 +65,9 @@
     <br><br>
     <select [(ngModel)]="credentials.project_ID">
         <option *ngFor="let project of projects" [value]="project.id">
+            <div *ngIf="project?.payment > 0">
             {{ project?.project_name }}
+            </div>
           </option>
       </select>
   

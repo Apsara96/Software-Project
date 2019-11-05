@@ -192,6 +192,8 @@ export class DevViewProjectComponent implements OnInit {
 
   sendRequest(){
 
+    if(window.confirm('Do you want to send request?')){
+
     this.requestProject.developer_ID=this.auth.getUserDetails().id
 
       this.requestProject.project_ID = this.devHome.project_ID
@@ -205,11 +207,14 @@ export class DevViewProjectComponent implements OnInit {
           console.log(err)
         }
     )
+      }
     
   }
 
 
   cancleRequest(){
+    if(window.confirm('Do you want to cancle request?')){
+
     this.requestProject.developer_ID=this.auth.getUserDetails().id
 
       this.requestProject.project_ID = this.devHome.project_ID
@@ -224,12 +229,16 @@ export class DevViewProjectComponent implements OnInit {
         }
     )
 
+      }
+
   }
 
   
   
 
   sendBid(){
+
+    if(window.confirm('Do you want to send bid?')){
     this.credentials.developer_ID=this.auth.getUserDetails().id
  
       this.credentials.project_ID = this.devHome.project_ID
@@ -243,10 +252,13 @@ export class DevViewProjectComponent implements OnInit {
         console.log(err)
       }
     )
+    }
   }
 
 
   bidAgain(){
+
+    if(window.confirm('Do you want to change bid?')){
     this.credentials.developer_ID=this.auth.getUserDetails().id
 
     this.credentials.project_ID = this.devHome.project_ID
@@ -261,10 +273,13 @@ export class DevViewProjectComponent implements OnInit {
     )
 
     this.ngOnInit()
+    }
   }
 
 
   deleteBid(){
+
+    if(window.confirm('Do you want to delete bid?')){
     this.route.queryParams.subscribe(params => {
       this.viewdetails.project_ID = params['pro_id'];
       this.viewdetails.client_ID = params['cli_id'];
@@ -282,6 +297,7 @@ export class DevViewProjectComponent implements OnInit {
     )
 
     window.location.reload();
+    }
   }
 
 

@@ -262,14 +262,14 @@ export class ViewMoreProjectComponent implements OnInit {
 
     this.authHome.deleteBid(this.viewdetails).subscribe(
       ()=>{
-
+        window.location.reload();
       },
       err=>{
         console.log(err)
       }
     )
 
-    window.location.reload();
+   
   }
 
 
