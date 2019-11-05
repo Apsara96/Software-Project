@@ -126,3 +126,13 @@ a{
   height:40px;
   border-radius: 100%;
 }
+.chatNoti{
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  color: white;
+  background-color: red;
+  margin-top: -35px;
+  margin-left: 30px;
+  position: absolute;
+}

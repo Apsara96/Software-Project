@@ -14,7 +14,7 @@ export class CliRegisterComponent implements OnInit {
   marked = true
   precontact_no = '';
   postcontact_no = '';
-
+   load=false
   credentials: TokenPayload = {
     id: 0,
     first_name: '',
@@ -59,6 +59,9 @@ export class CliRegisterComponent implements OnInit {
       return false;
     }
   }
+  loadSpin(){
+    this.load=true
+  } 
 
 
 

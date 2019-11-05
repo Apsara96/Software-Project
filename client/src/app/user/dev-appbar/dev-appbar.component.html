@@ -26,7 +26,8 @@
                <div class="pic" style="float:right; margin-right: 2%;margin-top: 10px;">
                     <a routerLink="/devCatagory/chat"><img style=" width: 25px;margin: 1px 0px 0px 6px;"
                               src="../../../assets/img/cc.png">
-                    </a>
+                    </a><div *ngIf="chatCount > 0" class="chatNoti"><b style="margin-left:6px;">{{chatCount}}</b></div>
+
                </div>
 
 

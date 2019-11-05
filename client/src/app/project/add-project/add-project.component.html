@@ -51,8 +51,16 @@
 
               <br>
               <div *ngIf="marked3">
-                <button type="submit" class="btn btn-info">Post the project</button>
+                <button type="submit" (click)="loadSpin()" class="btn btn-info">Post the project</button>
               </div>
+        
+             <br>
+             <div *ngIf="load" class="text-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+
 
               <br><br>
             </form>
