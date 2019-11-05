@@ -218,6 +218,8 @@ export class ViewProjectComponent implements OnInit {
 
 
   AcceptProReq(dev_ID: number, category: string) {
+
+    if(window.confirm('Do you want to accept the request?')){
     this.confirmedPro.developer_ID = dev_ID
     this.confirmedPro.client_ID = this.auth.getUserDetails().id
     this.confirmedPro.project_ID = this.credentials.id
@@ -228,10 +230,12 @@ export class ViewProjectComponent implements OnInit {
         window.location.reload()
       }
     )
+    }
 
   }
 
   AcceptBidReq(dev_ID: number, category: string) {
+    if(window.confirm('Do you want to accept the Bid?')){
     this.confirmedPro.developer_ID = dev_ID
     this.confirmedPro.client_ID = this.auth.getUserDetails().id
     this.confirmedPro.project_ID = this.credentials.id
@@ -242,6 +246,7 @@ export class ViewProjectComponent implements OnInit {
         window.location.reload()
       }
     )
+    }
 
   }
 
