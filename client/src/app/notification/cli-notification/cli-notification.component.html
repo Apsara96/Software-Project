@@ -1,122 +1,157 @@
+<div class="scrolling-box">
 
- <div class="scrolling-box">
 
+  <div class="container">
 
-<div class="container">
+    <div *ngIf="view">
 
-  <div *ngIf="view">
+      <div class="row">
+        <div class="col" style="background-color: rgb(147, 197, 245);">
+          <h3><b>Request for a project</b></h3><br>
+          <div *ngIf="marked1">
+            <h5><b>New</b></h5><br>
 
-    <div class="row">
-      <div class="col" style="background-color: rgb(147, 197, 245);">
-        <h3><b>Request for a project</b></h3><br>
-        <div *ngIf="marked1">
-          <h5><b>New</b></h5><br>
-
-          <div *ngFor="let reqNot of requestNotificationNew">
-            <button (click)="viewProjectRequest(reqNot.id)" class="tag">
-              <img src="http://localhost:3000/{{ reqNot?.user?.profile_img }}"
-                alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
-              Project Name: {{ reqNot?.project.project_name }}<br>
-              Request By : {{ reqNot?.user.first_name}} {{ reqNot?.user.last_name}}<br><br>
-            </button>
+            <div *ngFor="let reqNot of requestNotificationNew">
+              <button (click)="viewProjectRequest(reqNot.id)" class="tag">
+                <div class="row">
+                  <div class="col-1">
+                    <img src="http://localhost:3000/{{ reqNot?.user?.profile_img }}"
+                      alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                  </div>
+                  <div class="col">
+                    Project Name: {{ reqNot?.project.project_name }}<br>
+                    Request By : {{ reqNot?.user.first_name}} {{ reqNot?.user.last_name}}<br><br>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <br>
           </div>
-          <br>
-        </div>
-        
 
-        <div *ngIf="marked4">
-          <h5><b>Earlier</b></h5><br>
 
-          <div *ngFor="let reqNot of requestNotificationOld">
-            <button (click)="viewProjectRequest(reqNot.id)">
-              <img src="http://localhost:3000/{{ reqNot?.user?.profile_img }}"
-                alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
-              Project Name: {{ reqNot?.project.project_name }}<br>
-              Request By : {{ reqNot?.user.first_name}} {{ reqNot?.user.last_name}}<br><br>
-            </button>
+          <div *ngIf="marked4">
+            <h5><b>Earlier</b></h5><br>
+
+            <div *ngFor="let reqNot of requestNotificationOld">
+              <button (click)="viewProjectRequest(reqNot.id)">
+                <div class="row">
+                  <div class="col-1">
+                    <img src="http://localhost:3000/{{ reqNot?.user?.profile_img }}"
+                      alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                  </div>
+                  <div class="col">
+                    Project Name: {{ reqNot?.project.project_name }}<br>
+                    Request By : {{ reqNot?.user.first_name}} {{ reqNot?.user.last_name}}<br><br>
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
+
+          <br><br><br>
+
         </div>
 
-        <br><br><br>
+
+
+        <div class="col" style="background-color: rgb(217, 147, 245);">
+          <h3><b>Request for a bid</b></h3><br>
+          <div *ngIf="marked2">
+            <h5><b>New</b></h5><br>
+
+            <div *ngFor="let bidNot of bidNotificationNew">
+              <button (click)="viewBidResponse(bidNot.id)" class="tag">
+                <div class="row">
+                  <div class="col-1">
+                    <img src="http://localhost:3000/{{ bidNot?.user?.profile_img }}"
+                      alt="http://localhost:3000/{{ bidNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                  </div>
+                  <div class="col">
+                    Project Name: {{ bidNot?.project.project_name }}<br>
+                    Request By : {{ bidNot?.user.first_name}} {{ bidNot?.user.last_name}}<br>
+                    Bid value: {{ bidNot?.bid_value }}
+                  </div>
+                </div>
+              </button>
+            </div>
+            <br>
+          </div>
+
+          <div *ngIf="marked5">
+            <h5><b>Earlier</b></h5><br>
+
+            <div *ngFor="let bidNot of bidNotificationOld">
+              <button (click)="viewBidResponse(bidNot.id)">
+                <div class="row">
+                  <div class="col-1">
+                    <img src="http://localhost:3000/{{ bidNot?.user?.profile_img }}"
+                      alt="http://localhost:3000/{{ bidNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                  </div>
+                  <div class="col">
+                    Project Name: {{ bidNot?.project.project_name }}<br>
+                    Request By : {{ bidNot?.user.first_name}} {{ bidNot?.user.last_name}}<br>
+                    Bid value: {{ bidNot?.bid_value }}
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <br><br><br>
+        </div>
+
+
+
+        <div class="col" style="background-color: rgb(147, 197, 245);">
+          <h3><b>Accept request</b></h3><br>
+          <div *ngIf="marked3">
+            <h5><b>New</b></h5><br>
+
+            <div *ngFor="let devNot of developerAcceptNew">
+              <button (click)="viewDevAccept(devNot.id)" class="tag">
+                <div class="row">
+                  <div class="col-1">
+                    <img src="http://localhost:3000/{{ devNot?.user?.profile_img }}"
+                      alt="http://localhost:3000/{{ devNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                  </div>
+                  <div class="col">
+                    Project Name: {{ devNot?.project.project_name }}<br>
+                    Accepted By : {{ devNot?.user.first_name}} {{ devNot?.user.last_name}}<br><br>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <br>
+          </div>
+
+          <div *ngIf="marked6">
+            <h5><b>Earlier</b></h5><br>
+
+            <div *ngFor="let devNot of developerAcceptOld">
+              <button (click)="viewDevAccept(devNot.id)">
+                  <div class="row">
+                      <div class="col-1">
+                        <img src="http://localhost:3000/{{ devNot?.user?.profile_img }}"
+                          alt="http://localhost:3000/{{ devNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                      </div>
+                      <div class="col">
+                        Project Name: {{ devNot?.project.project_name }}<br>
+                        Accepted By : {{ devNot?.user.first_name}} {{ devNot?.user.last_name}}<br><br>
+                      </div>
+                    </div>
+              </button>
+            </div>
+          </div>
+
+          <br><br><br>
+        </div>
+
 
       </div>
-
-
-
-      <div class="col" style="background-color: rgb(217, 147, 245);">
-        <h3><b>Request for a bid</b></h3><br>
-        <div *ngIf="marked2">
-          <h5><b>New</b></h5><br>
-
-          <div *ngFor="let bidNot of bidNotificationNew">
-            <button (click)="viewBidResponse(bidNot.id)" class="tag">
-              <img src="http://localhost:3000/{{ bidNot?.user?.profile_img }}"
-                alt="http://localhost:3000/{{ bidNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
-              Project Name: {{ bidNot?.project.project_name }}<br>
-              Request By : {{ bidNot?.user.first_name}} {{ bidNot?.user.last_name}}<br>
-              Bid value: {{ bidNot?.bid_value }}
-            </button>
-          </div>
-          <br>
-        </div>
-
-        <div *ngIf="marked5">
-          <h5><b>Earlier</b></h5><br>
-
-          <div *ngFor="let bidNot of bidNotificationOld">
-            <button (click)="viewBidResponse(bidNot.id)">
-              <img src="http://localhost:3000/{{ bidNot?.user?.profile_img }}"
-                alt="http://localhost:3000/{{ bidNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
-              Project Name: {{ bidNot?.project.project_name }}<br>
-              Request By : {{ bidNot?.user.first_name}} {{ bidNot?.user.last_name}}<br>
-              Bid value: {{ bidNot?.bid_value }}
-            </button>
-          </div>
-        </div>
-
-        <br><br><br>
-      </div>
-
-
-
-      <div class="col" style="background-color: rgb(165, 246, 252);">
-        <h3><b>Accept request</b></h3><br>
-        <div *ngIf="marked3">
-          <h5><b>New</b></h5><br>
-
-          <div *ngFor="let devNot of developerAcceptNew">
-            <button (click)="viewDevAccept(devNot.id)" class="tag">
-              <img src="http://localhost:3000/{{ devNot?.user?.profile_img }}"
-                alt="http://localhost:3000/{{ devNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
-              Project Name: {{ devNot?.project.project_name }}<br>
-              Accepted By : {{ devNot?.user.first_name}} {{ devNot?.user.last_name}}<br><br>
-            </button>
-          </div>
-          <br>
-        </div>
-
-        <div *ngIf="marked6">
-          <h5><b>Earlier</b></h5><br>
-
-          <div *ngFor="let devNot of developerAcceptOld">
-            <button (click)="viewDevAccept(devNot.id)">
-              <img src="http://localhost:3000/{{ devNot?.user?.profile_img }}"
-                alt="http://localhost:3000/{{ devNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
-              Project Name: {{ devNot?.project.project_name }}<br>
-              Accepted By : {{ devNot?.user.first_name}} {{ devNot?.user.last_name}}<br><br>
-            </button>
-          </div>
-        </div>
-
-        <br><br><br>
-      </div>
-
 
     </div>
 
-  </div>
 
-   
 
 
 
@@ -197,10 +232,10 @@
     </div> -->
 
   </div>
- </div>
+</div>
 
 
-  <!-- <div *ngIf="!view">
+<!-- <div *ngIf="!view">
 
     <div *ngIf="view1">
       <app-view-dev-request></app-view-dev-request>

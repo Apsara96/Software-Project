@@ -1,52 +1,52 @@
+<div  style="background-color: #e3d5f3;">
+
 <div class="container">
   <div class="row">
 
     <div class="col mx-auto">
 
-      <img src="http://localhost:3000/{{ details?.profile_img}}" width="30%" height="30%" class="img1"><br>
+      <img src="http://localhost:3000/{{ details?.profile_img}}" width="50%" height="50%" class="img1"><br>
       <label><img src="assets/img/cam2.png" width="10%" height="10%" class="img2" />
         <input type="file" name="profile_image" accept="image/*" (change)="onFileSelected($event)">
       </label>
-
+    </div>
+      <div class="col mx-auto">
       <div *ngIf="marked1">
 
         <table class="table">
           <tr>
-            <td>Fist Name</td>
-            <td>{{ details?.first_name }}</td>
+            
+            <td><b>{{ details?.first_name }} {{ details?.last_name }}</b></td>
+          </tr>
+          
+          <tr>
+           
+            <td><i class="fa fa-envelope info"></i> {{ details?.email }}</td>
           </tr>
           <tr>
-            <td>Last Name</td>
-            <td>{{ details?.last_name }}</td>
+            
+            <td><i class="fa fa-user info"></i> {{ details?.gender }}</td>
           </tr>
           <tr>
-            <td>Email</td>
-            <td>{{ details?.email }}</td>
-          </tr>
-          <tr>
-            <td>Gender</td>
-            <td>{{ details?.gender }}</td>
-          </tr>
-          <tr>
-            <td>contact number</td>
-            <td>{{ details?.contact_no }}</td>
+            
+            <td><i class="fa fa-phone info"></i> {{ details?.contact_no }}</td>
           </tr>
         </table>
 
-        <div style="text-align: center"><button (click)="showEditProf()" class="btn btn-lg btn-primary">Edit public
-            details</button></div>
-
+        <div style="text-align: left"><button (click)="showEditProf()" class="btn btn-lg btn-primary">Edit details</button></div>
+<br><br>
       </div>
 
       <app-cli-edit-profile *ngIf="marked2"></app-cli-edit-profile>
     </div>
 
     <div class="col mx-auto">
-
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+<br>
+<div style="text-align: right"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter2">
         Change password
       </button>
-
+      <br><br>
+      </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -109,13 +109,13 @@
         </div>
       </div>
 
+      
 
 
-
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
+      <div style="text-align: right"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter3">
           Change email
         </button>
-  
+  </div>
 
         <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -172,4 +172,7 @@
 
     </div>
   </div>
+</div>
+
+
 </div>

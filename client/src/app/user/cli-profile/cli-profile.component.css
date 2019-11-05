@@ -5,7 +5,7 @@ input[type="file"] {
 .img1
 	{
 		position: relative;
-		top: 4%;
+		top: 25%;
         left: 30%;
         border-radius:100%;
     
@@ -13,7 +13,12 @@ input[type="file"] {
 	.img2
 	{
 		position: absolute;
-		top: 20%;
-        left: 50%;
+		top: 60%;
+        left: 68%;
         border-radius:100%;
-    }
+	}
+	.info
+{
+  color: rgba(30, 144, 255, 0.6);
+  margin-right: 16px;
+}

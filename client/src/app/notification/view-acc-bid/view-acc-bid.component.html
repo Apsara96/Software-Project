@@ -4,7 +4,7 @@
 
     <!-- <button (click)="BackToNotification()">&lt;&lt;&lt;Back to Notifications</button> -->
 
-    <div>
+    <!-- <div>
   <img src="http://localhost:3000/{{ Not_details?.project?.user?.profile_img }}"
     alt="http://localhost:3000/{{ Not_details?.project?.user?.profile_img }}"><br>
 
@@ -13,5 +13,58 @@
   {{ Not_details?.project?.user?.last_name }}<br>
 
   {{ Not_details?.project?.project_name }}
+</div> -->
+
+<div class="row">
+
+    <div class="col">
+        <div>
+            <img src="http://localhost:3000/{{ Not_details?.project?.user?.profile_img }}"
+            style="width: 200px;height: 200px; margin-left: 25%;"><br>
+    
+    
+            <table class="table">
+                <tr>
+                  <td>Fist Name</td>
+                  <td>{{ Not_details?.project?.user?.first_name }}</td>
+                </tr>
+                <tr>
+                  <td>Last Name</td>
+                  <td>{{ Not_details?.project?.user?.last_name }}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{{ Not_details?.project?.user?.email }}</td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
+                  <td>{{ Not_details?.project?.user?.gender }}</td>
+                </tr>
+                <tr>
+                  <td>Contact number</td>
+                  <td>{{ Not_details?.project?.user?.contact_no }}</td>
+                </tr>
+              </table>
+    
+           
+        </div>
+        
+    </div>
+
+    <div class="col">
+
+            <th>{{ Not_details?.project.project_name }}</th>
+            <tr>
+              <td>Project Description:</td>
+              <td>{{ Not_details?.project.project_description }}</td>
+            </tr>
+            <tr>
+              <td>Project Category:</td>
+              <td>{{ Not_details?.project.project_category }}</td>
+            </tr>
+
+    </div>
+
 </div>
+
 </div>

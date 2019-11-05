@@ -18,6 +18,7 @@ export class DevViewNotificationComponent implements OnInit {
   bidNot_ID: number;
   cliNot_ID: number;
 
+
   ngOnInit() {
 
     this.route.queryParams.subscribe(params => {

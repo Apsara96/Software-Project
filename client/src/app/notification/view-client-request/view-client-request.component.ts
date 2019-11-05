@@ -53,6 +53,7 @@ export class ViewClientRequestComponent implements OnInit {
 
   acceptRequest(){
 
+    if(window.confirm('Do you want to accept project the request?')){
     this.request_data.developer_ID = this.auth.getUserDetails().id
 
     this.request_data.notification_ID = this.devNot.cliNot_ID
@@ -60,13 +61,13 @@ export class ViewClientRequestComponent implements OnInit {
 
     this.authNot.acceptRequestDeveloper(this.request_data).subscribe(
       result=>{
-        window.alert("You have accepted request!")
         this.ngOnInit()
       },
       err=>{
         console.log(err)
       }
     )
+    }
 
     
   }

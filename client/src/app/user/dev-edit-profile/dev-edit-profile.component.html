@@ -1,7 +1,8 @@
 
 
       
-          <h1 class="text-center">{{ details?.user_type }} <b>{{ details?.first_name }}</b></h1>
+    <div class="card">
+          <h4 class="text-center">{{ details?.user_type }} <b>{{ details?.first_name }}</b></h4>
              
           <form (submit)="editProf()">
             <div class="form-group">
@@ -21,11 +22,15 @@
               <input type="text" class="form-control" name="contact_no" placeholder="07########" [(ngModel)]="credentials.contact_no" >
             </div>
 
-            <button type="submit" >Confirm</button>
-            <button (click)="CancleEditProfile()">Cancle</button><br><br>
+            <div style="margin-left:215px">
+                <button (click)="CancleEditProfile()" class="btn btn-primary btn-sm" style="margin-right:5px">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-sm">Confirm</button> 
+              </div>
+              
           
             
           </form>
-    
+        </div>
+        <br><br><br><br>
           
 

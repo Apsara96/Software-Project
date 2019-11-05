@@ -29,8 +29,7 @@
     </div>
 
     <div class="col-md-6">
-    <img src="http://localhost:3000/{{ fixPro?.project?.user.profile_img }}" width="10%" heigt="10%">
-
+    <img src="http://localhost:3000/{{ fixPro?.project?.user.profile_img }}" width="200px" height="200px">
 
     <table class="table col-md-6 mx-left">
       <th>About the client</th>
@@ -92,32 +91,36 @@
   </div>
 
   <div class="col-md-6">
-    <img src="http://localhost:3000/{{ bidPro?.project?.user.profile_img }}" width="10%" heigt="10%">
 
+    <div id="example1">
+        <img src="http://localhost:3000/{{ bidPro?.project?.user.profile_img }}" width="200px" height="200px">
+        <table class="table  mx-left">
+            <th>About the client</th>
+            <tr>
+              <td>Fist Name</td>
+              <td>{{ bidPro?.project?.user.first_name }}</td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>{{ bidPro?.project?.user.last_name }}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{ bidPro?.project?.user.email }}</td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>{{ bidPro?.project?.user.gender }}</td>
+            </tr>
+            <tr>
+              <td>Contact number</td>
+              <td>{{ bidPro?.project?.user.contact_no }}</td>
+            </tr>
+          </table>
+      
+      </div>
 
-    <table class="table col-md-6 mx-left">
-      <th>About the client</th>
-      <tr>
-        <td>Fist Name</td>
-        <td>{{ bidPro?.project?.user.first_name }}</td>
-      </tr>
-      <tr>
-        <td>Last Name</td>
-        <td>{{ bidPro?.project?.user.last_name }}</td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td>{{ bidPro?.project?.user.email }}</td>
-      </tr>
-      <tr>
-        <td>Gender</td>
-        <td>{{ bidPro?.project?.user.gender }}</td>
-      </tr>
-      <tr>
-        <td>Contact number</td>
-        <td>{{ bidPro?.project?.user.contact_no }}</td>
-      </tr>
-    </table>
+    
     </div>
     </div>
   </div>
@@ -143,8 +146,8 @@
     </div>
 
     <div class="col-md-6">
-    <img src="http://localhost:3000/{{ recPro?.project?.user.profile_img }}" width="10%" heigt="10%">
-
+    <img src="http://localhost:3000/{{ recPro?.project?.user.profile_img }}" width="200px" height="200px">
+  
 
     <table class="table col-md-6 mx-left">
       <th>About the client</th>

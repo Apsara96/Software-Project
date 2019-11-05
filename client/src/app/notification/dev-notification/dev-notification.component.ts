@@ -4,7 +4,7 @@ import { AuthenticationService } from '../../user/authentication.service';
 import { AuthNotificationService, developerID } from 'src/app/notification/auth-notification.service';
 import { requestDeveloperDetails } from 'src/app/home/auth-home.service';
 import { Subscription, timer, pipe } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dev-notification',
@@ -163,32 +163,38 @@ export class DevNotificationComponent implements OnInit {
   // cliNot_ID: number;
 
 
-  viewClientRequest(not_ID:number){
+  async viewClientRequest(not_ID:number){
     // this.cliNot_ID = not_ID
     // this.view = false
     // this.view1 = false
     // this.view2 = false
     // this.view3 = true
     this.route.navigate(['/devCatagory/notification'], { queryParams: { not_id: not_ID, type:1 } });
+    await delay(500);
+    window.location.reload()
   }
 
 
-  viewAccProReq(not_ID:number){
+  async viewAccProReq(not_ID:number){
     // this.accNot_ID = not_ID
     // this.view = false
     // this.view1 = true
     // this.view2 = false
     // this.view3 = false
     this.route.navigate(['/devCatagory/notification'], { queryParams: { not_id: not_ID, type:2 } });
+    await delay(500);
+    window.location.reload()
   }
 
-  viewAccBidReq(not_ID:number){
+  async viewAccBidReq(not_ID:number){
     // this.bidNot_ID = not_ID
     // this.view = false
     // this.view1 = false
     // this.view2 = true
     // this.view3 = false
     this.route.navigate(['/devCatagory/notification'], { queryParams: { not_id: not_ID, type:3 } });
+    await delay(500);
+    window.location.reload()
   }
 
   

@@ -4,7 +4,7 @@ import { AuthNotificationService, clientID } from 'src/app/notification/auth-not
 import { requestDetails, bidResponseDetails, requestDeveloperDetails } from 'src/app/home/auth-home.service';
 import { Router } from '@angular/router';
 import { Subscription, timer, pipe } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, delay } from 'rxjs/operators';
 
 
 @Component({
@@ -169,32 +169,38 @@ export class CliNotificationComponent implements OnInit {
   // bidNot_ID: number;
   // accNot_ID: number;
 
-  viewProjectRequest(not_ID:number){
+  async viewProjectRequest(not_ID:number){
     // this.proNot_ID = not_ID
     // this.view = false
     // this.view1 = true
     // this.view2 = false
     // this.view3 = false
     this.route.navigate(['/cliCatagory/notification'], { queryParams: { not_id: not_ID, type:1 } });
+    await delay(500);
+    window.location.reload()
 
   }
 
-  viewBidResponse(not_ID:number){
+  async viewBidResponse(not_ID:number){
     // this.bidNot_ID = not_ID
     // this.view = false
     // this.view1 = false
     // this.view2 = true
     // this.view3 = false
     this.route.navigate(['/cliCatagory/notification'], { queryParams: { not_id: not_ID, type:2 } });
+    await delay(500);
+    window.location.reload()
   }
 
-  viewDevAccept(not_ID:number){
+  async viewDevAccept(not_ID:number){
     // this.accNot_ID = not_ID
     // this.view = false
     // this.view1 = false
     // this.view2 = false
     // this.view3 = true
     this.route.navigate(['/cliCatagory/notification'], { queryParams: { not_id: not_ID, type:3 } });
+    await delay(500);
+    window.location.reload()
   }
 
 

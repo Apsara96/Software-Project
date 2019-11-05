@@ -1,4 +1,5 @@
 <div class="container">
+  <br>
   <div class="row">
 
     <div class="col mx-auto">
@@ -7,92 +8,47 @@
       <label><img src="assets/img/cam2.png" width="10%" height="10%" class="img2" />
         <input type="file" name="profile_image" accept="image/*" (change)="onFileSelected($event)">
       </label>
-
+      <div style ="position: absolute; margin-top:-100px; margin-left:400px">
+      <div style="text-align: right"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+          Change password
+        </button>
+        <br><br>
+      </div>
+      <div style="text-align: right"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter3">
+          Change email
+        </button></div>
+      </div>
       <div *ngIf="marked1">
 
         <table class="table ">
           <tr>
-            <td>Fist Name</td>
-            <td>{{ details?.first_name }}</td>
+            
+            <td><b>{{ details?.first_name }} {{ details?.last_name }}</b></td>
+          </tr>
+         
+          <tr>
+            
+            <td><i class="fa fa-envelope info"></i> {{ details?.email }}</td>
           </tr>
           <tr>
-            <td>Last Name</td>
-            <td>{{ details?.last_name }}</td>
+            
+            <td><i class="fa fa-user info"></i> {{ details?.gender }}</td>
           </tr>
           <tr>
-            <td>Email</td>
-            <td>{{ details?.email }}</td>
-          </tr>
-          <tr>
-            <td>Gender</td>
-            <td>{{ details?.gender }}</td>
-          </tr>
-          <tr>
-            <td>contact number</td>
-            <td>{{ details?.contact_no }}</td>
+            
+            <td><i class="fa fa-phone info"></i> {{ details?.contact_no }}</td>
           </tr>
         </table>
 
-        <div style="text-align: center"><button (click)="showEditProf()" class="btn btn-lg btn-primary">Edit public
-            details</button></div>
+        <div style="text-align: left"><button (click)="showEditProf()" class="btn btn-lg btn-primary">Edit details</button></div>
 
       </div>
-
+      <br><br><br><br>
       <app-dev-edit-profile *ngIf="marked2"></app-dev-edit-profile>
-    </div>
 
-    <div class="col mx-auto">
-      <div *ngIf="!showSkill">
-        <h3>Skills</h3><br>
-        <div *ngFor="let skill of skills">
-          <h6>{{skill?.skill}}</h6>
-        </div>
+      <br><br>
 
-        <br><br>
-        <h3>Technologies</h3><br>
-        <div *ngFor="let techno of technologies">
-          <h6>{{techno?.technology}}</h6>
-        </div>
-
-        <!-- <button class="btn btn-lg btn-primary show-modal" type="button" data-toggle="modal"
-          data-target="#exampleModalCenter1">Update skills and technologies</button> -->
-
-          <button class="btn btn-lg btn-primary show-modal" (click)="editSkill()">Update skills and technologies</button>
-      </div>
       
-      <div *ngIf="showSkill">
-        <app-edit-skill></app-edit-skill>
-      </div>
-
-      <!-- <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="show">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-
-            <app-edit-skill></app-edit-skill>
-
-
-          </div>
-        </div>
-      </div> -->
-
-    </div>
-
-
-
-    <div class="col mx-auto">
-
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
-          Change password
-        </button>
-  
-        <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -157,9 +113,7 @@
   
   
   
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
-            Change email
-          </button>
+        
     
   
           <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
@@ -215,12 +169,57 @@
   
   
   
+
+
+    </div>
+   
+    <div class="card">
+      <br>
+    <div class="col mx-auto">
+      <div *ngIf="!showSkill">
+        <h5><i class="fa fa-star info"></i> Skills</h5><br>
+        <div *ngFor="let skill of skills">
+          <h6>{{skill?.skill}}</h6>
+        </div>
+
+        <br><br>
+        <h5><i class="fa fa-graduation-cap info"></i> Technologies</h5><br>
+        <div *ngFor="let techno of technologies">
+          <h6>{{techno?.technology}}</h6>
+        </div>
+
+        <!-- <button class="btn btn-lg btn-primary show-modal" type="button" data-toggle="modal"
+          data-target="#exampleModalCenter1">Update skills and technologies</button> -->
+          <br><br><br><br><br><br><br><br>
+          <button class="btn btn-lg btn-primary show-modal" (click)="editSkill()">Update</button>
       </div>
+      
+      <div *ngIf="showSkill">
+        <app-edit-skill></app-edit-skill>
+      </div>
+      </div>
+      
+      <!-- <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="show">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+            <app-edit-skill></app-edit-skill>
 
 
+          </div>
+        </div>
+      </div> -->
 
-
-
+    </div>
+    
+    
   </div>
 </div>
 

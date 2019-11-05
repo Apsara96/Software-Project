@@ -39,6 +39,7 @@ export class ViewDevRequestComponent implements OnInit {
 
     this.authNot.viewRequestProject(this.request_data).subscribe(
       res=>{
+        console.log(res)
         this.Not_details = res
       }
     )

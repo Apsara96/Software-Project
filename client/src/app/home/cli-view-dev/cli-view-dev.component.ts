@@ -71,6 +71,7 @@ export class CliViewDevComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.userName = this.auth.getUserDetails().first_name
     this.userId = this.auth.getUserDetails().id
     this.details.user_ID = this.cliHome.userID
@@ -130,8 +131,6 @@ export class CliViewDevComponent implements OnInit {
 
       this.credentials.developer_ID = this.cliHome.userID
 
-
-
       this.authHome.cli_sendRequest(this.credentials).subscribe(
         request => {
           this.marked1 = false
@@ -139,7 +138,6 @@ export class CliViewDevComponent implements OnInit {
           this.ngOnInit()
         },
         err => {
-          window.alert("You have requested for this already!")
         }
       )
 

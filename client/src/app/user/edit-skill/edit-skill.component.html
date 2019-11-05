@@ -1,5 +1,6 @@
 <div class="container">
-
+        <div class="row">
+                <div class="col">
         <h4>Skills</h4>
         
         <div class="custom-control custom-checkbox">
@@ -53,10 +54,11 @@
         </div>
 
         <label>Other Skills</label><br>
-        <textarea cols="50" rows="5" [(ngModel)]="skills.other_skills"></textarea>
+        <textarea cols="25" rows="5" [(ngModel)]="skills.other_skills"></textarea>
         
         <br>
-        
+                </div>
+                <div class="col">
         <h4>Technologies</h4>
         
         <div class="custom-control custom-checkbox">
@@ -140,13 +142,16 @@
         </div>
 
         <label>Other Technologies</label><br>
-        <textarea cols="50" rows="5" [(ngModel)]="technologies.other_technologies"></textarea>
+        <textarea cols="25" rows="5" [(ngModel)]="technologies.other_technologies"></textarea>
         
         <br>
-        <button (click)="UpdateSkills()">Update</button>
-        <button (click)="cancleSkill()">Cancle</button>
+        <div style="margin-left:100px">
+                <button (click)="cancleSkill()" class="btn btn-primary btn-sm" style="margin-right:5px">Cancel</button>
+                <button (click)="UpdateSkills()" class="btn btn-primary btn-sm">Update</button> 
+              </div>
         
     </div>      
-        
+</div>
+</div>
         
         

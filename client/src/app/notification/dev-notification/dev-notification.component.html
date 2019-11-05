@@ -1,123 +1,159 @@
 <div class="scrolling-box">
 
-<div class="container">
+  <div class="container">
 
-  <div *ngIf="view">
+    <div *ngIf="view">
 
 
 
       <div class="row">
-          <div class="col" style="background-color: rgb(147, 197, 245);">
-            <h3><b>Request from a client</b></h3><br>
-            <div *ngIf="marked1">
-              <h5><b>New</b></h5><br>
-    
-              <div *ngFor="let reqNot of requestNotificationNew">
-                  <button (click)="viewClientRequest(reqNot.id)" class="tag">
+        <div class="col" style="background-color: rgb(147, 197, 245);">
+          <h3><b>Request from a client</b></h3><br>
+          <div *ngIf="marked1">
+            <h5><b>New</b></h5><br>
+
+            <div *ngFor="let reqNot of requestNotificationNew">
+              <button (click)="viewClientRequest(reqNot.id)" class="tag">
+                <div class="row">
+                    <div class="col-1">
                       <img src="http://localhost:3000/{{ reqNot?.user?.profile_img }}"
-                        alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
+                      alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                    </div>
+                    <div class="col">
                       Client Name: {{ reqNot?.user?.first_name }} {{ reqNot?.user?.last_name }}<br>
                       Project Name: {{ reqNot?.project.project_name }}<br><br>
-                    </button>
-              </div>
-              <br>
+                    </div>
+                  </div>
+              </button>
             </div>
-            
-    
-            <div *ngIf="marked4">
-              <h5><b>Earlier</b></h5><br>
-    
-              <div *ngFor="let reqNot of requestNotificationOld">
-                  <button (click)="viewClientRequest(reqNot.id)">
+            <br>
+          </div>
+
+
+          <div *ngIf="marked4">
+            <h5><b>Earlier</b></h5><br>
+
+            <div *ngFor="let reqNot of requestNotificationOld">
+              <button (click)="viewClientRequest(reqNot.id)">
+                <div class="row">
+                  <div class="col-1">
                     <img src="http://localhost:3000//{{ reqNot?.user?.profile_img }}"
-                      alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="10%" heigt="10%"><br>
+                      alt="http://localhost:3000/{{ reqNot?.user?.profile_img }}" width="40px" height="40px"><br>
+                  </div>
+                  <div class="col">
                     Client Name: {{ reqNot?.user?.first_name }} {{ reqNot?.user?.last_name }}<br>
                     Project Name: {{ reqNot?.project.project_name }}<br><br>
-                  </button>
+                  </div>
                 </div>
-    
-            <br><br><br>
-    
-          </div>
-          </div>
-    
-    
-    
-          <div class="col" style="background-color: rgb(217, 147, 245);">
-            <h3><b>Accept project request</b></h3><br>
-            <div *ngIf="marked2">
-              <h5><b>New</b></h5><br>
-    
-              <div *ngFor="let reqNot of accProReqNew">
-                  <button (click)="viewAccProReq(reqNot.id)" class="tag">
-                      <img src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
-                        alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}" width="10%" heigt="10%"><br>
-                      Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
-                      Project Name: {{ reqNot?.project.project_name }}<br><br>
-                    </button>
-              </div>
-              <br>
-            </div>
-    
-            <div *ngIf="marked5">
-              <h5><b>Earlier</b></h5><br>
-    
-              <div *ngFor="let reqNot of accProReqOld">
-                  <button (click)="viewAccProReq(reqNot.id)">
-                    <img src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
-                      alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}" width="10%" heigt="10%"><br>
-                    Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
-                    Project Name: {{ reqNot?.project.project_name }}<br><br>
-                  </button>
-                </div>
+              </button>
             </div>
 
             <br><br><br>
-          </div>
-    
-    
-    
-          <div class="col" style="background-color: rgb(165, 246, 252);">
-            <h3><b>Accept bid request</b></h3><br>
-            <div *ngIf="marked3">
-              <h5><b>New</b></h5><br>
-    
-              <div *ngFor="let reqNot of accBidReqNew">
-                  <button (click)="viewAccBidReq(reqNot.id)" class="tag">
-                      <img src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
-                        alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}" width="10%" heigt="10%"><br>
-                      Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
-                      Project Name: {{ reqNot?.project.project_name }}<br><br>
-                    </button>
-              </div>
-              <br>
-            </div>
-    
-            <div *ngIf="marked6">
-              <h5><b>Earlier</b></h5><br>
-    
-              <div *ngFor="let reqNot of accBidReqOld">
-                  <button (click)="viewAccBidReq(reqNot.id)">
-                    <img src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
-                      alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}" width="10%" heigt="10%"><br>
-                    Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
-                    Project Name: {{ reqNot?.project.project_name }}<br><br>
-                  </button>
-                </div>
-            </div>
 
-            <br><br><br>
           </div>
-    
-    
         </div>
 
 
 
+        <div class="col" style="background-color: rgb(217, 147, 245);">
+          <h3><b>Accept project request</b></h3><br>
+          <div *ngIf="marked2">
+            <h5><b>New</b></h5><br>
+
+            <div *ngFor="let reqNot of accProReqNew">
+              <button (click)="viewClientRequest(reqNot.id)" class="tag">
+                <div class="row">
+                  <div class="col-1">
+                      <img src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
+                      alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"  width="40px" height="40px"><br>
+                  </div>
+                  <div class="col">
+                      Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
+                      Project Name: {{ reqNot?.project.project_name }}<br><br>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <br>
+          </div>
+
+          <div *ngIf="marked5">
+            <h5><b>Earlier</b></h5><br>
+
+            <div *ngFor="let reqNot of accProReqOld">
+              <button (click)="viewAccProReq(reqNot.id)">
+                  <div class="row">
+                      <div class="col-1">
+                        <img src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
+                        alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}" width="40px" height="40px"><br>
+                      </div>
+                      <div class="col">
+                          Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
+                          Project Name: {{ reqNot?.project.project_name }}<br><br>
+                      </div>
+                    </div>
+              </button>
+            </div>
+          </div>
+
+          <br><br><br>
+        </div>
 
 
 
-    <!-- <div *ngIf="marked1">
+        <div class="col" style="background-color: rgb(147, 197, 245);">
+          <h3><b>Accept bid request</b></h3><br>
+          <div *ngIf="marked3">
+            <h5><b>New</b></h5><br>
+
+            <div *ngFor="let reqNot of accBidReqNew">
+              <button (click)="viewAccBidReq(reqNot.id)" class="tag">
+                  <div class="row">
+                      <div class="col-1">
+                        <img  src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
+                        alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}" width="40px" height="40px"><br>
+                      </div>
+                      <div class="col">
+                          Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
+                          Project Name: {{ reqNot?.project.project_name }}<br><br>
+                      </div>
+                    </div>
+              </button>
+            </div>
+            <br>
+          </div>
+
+          <div *ngIf="marked6">
+            <h5><b>Earlier</b></h5><br>
+
+            <div *ngFor="let reqNot of accBidReqOld">
+              <button (click)="viewAccBidReq(reqNot.id)">
+                  <div class="row">
+                      <div class="col-1">
+                        <img  src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
+                        alt="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}" width="40px" height="40px"><br>
+                      </div>
+                      <div class="col">
+                          Client Name: {{ reqNot?.project?.user?.first_name }} {{ reqNot?.project?.user?.last_name }}<br>
+                          Project Name: {{ reqNot?.project.project_name }}<br><br>
+                      </div>
+                    </div>
+              </button>
+            </div>
+          </div>
+
+          <br><br><br>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+      <!-- <div *ngIf="marked1">
       <h3><b>New</b></h3><br>
 
       <div *ngFor="let reqNot of requestNotificationNew">
@@ -193,9 +229,9 @@
 
     </div> -->
 
-  </div>
+    </div>
 
-</div>
+  </div>
 
 
   <!-- <div *ngIf="!view">

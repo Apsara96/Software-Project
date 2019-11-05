@@ -2,7 +2,7 @@
 
 
         
-          <h1 class="text-center">{{ details?.user_type }} <b>{{ details?.first_name }}</b></h1>
+          <h3 class="text-center">{{ details?.user_type }} <b>{{ details?.first_name }}</b></h3>
              
           <form (submit)="editProf()">
             <div class="form-group">
@@ -22,9 +22,11 @@
               <input type="text" class="form-control" name="contact_no" placeholder="07########" [(ngModel)]="credentials.contact_no" >
             </div>
 
-            <button type="submit" >Confirm</button>
-            <button (click)="CancleEditProfile()">Cancle</button><br><br>
           
+            <div style="margin-left:170px">
+                <button (click)="CancleEditProfile()" class="btn btn-primary btn-sm" style="margin-right:5px">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-sm">Confirm</button> <br><br>
+              </div>
             
           </form>
     

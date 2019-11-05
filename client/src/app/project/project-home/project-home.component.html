@@ -1,107 +1,122 @@
 <div class="back">
-<div class="container">
+  <div class="container">
 
-<div *ngIf="wholeMarked">
+    <div *ngIf="wholeMarked">
 
-<div *ngIf="marked">
+      <div *ngIf="marked">
 
-  <div style="text-align: center;"><button (click)="AddProject()" class="btn btn-lg btn-primary">Add a
-      new
-      project</button></div>
+        <div style="text-align: center;"><button (click)="AddProject()" class="btn btn-lg btn-primary">Add a
+            new
+            project</button></div>
 
-  <br><br>
+        <br><br>
 
-  <div class="row">
-    <div class="col mx-auto">
-      <h2 class="text-center">Current projects</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h2 class="card-header">Current projects</h2>
 
-      <br><br>
-      <div *ngIf="!marked1">
-        <div *ngFor="let project of projects">
+                <br><br>
+                <div *ngIf="!marked1">
+                  <div *ngFor="let project of projects">
 
 
-          <table>
-            <tr>
-              <td><b>{{ project?.project_name }}</b></td>
-              <td><button (click)="onClick( project.id )">
-                  View more
-                </button></td>
-            </tr>
-          </table><br><br>
+                    <table>
+                      <tr>
+                        <td><b>{{ project?.project_name }}</b></td>
+                        <td><button (click)="onClick( project.id )">
+                            View more
+                          </button></td>
+                      </tr>
+                    </table><br><br>
 
+                  </div>
+                </div>
+
+                <div *ngIf="marked1">
+                  <div style="text-align: center">
+                    <h4>There is not any current project</h4>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+            <h2 class="card-header">Confirmed projects</h2>
+
+            <br><br>
+            <div *ngIf="!marked2">
+              <div *ngFor="let Conproject of Conf_projects">
+                <table>
+                  <tr>
+                    <td><b>{{ Conproject?.project.project_name }}</b></td>
+                    <td><button (click)="onClick( Conproject.project.id )">
+                        View more
+                      </button></td>
+                  </tr>
+                </table><br><br>
+
+              </div>
+            </div>
+
+            <div *ngIf="marked2">
+              <div style="text-align: center">
+                <h4>There is not any confirmed project</h4>
+              </div>
+            </div>
+          </div>
+              </div>
+          </div>
+
+
+          <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+            <h2 class="card-header">Completed projects</h2>
+
+            <br><br>
+            <div *ngIf="!marked3">
+              <div *ngFor="let Comproject of Comp_projects">
+                <table>
+                  <tr>
+                    <td><b>{{ Comproject?.project.project_name }}</b></td>
+                    <td><button (click)="onClick( Comproject.project.id )">
+                        View more
+                      </button></td>
+                  </tr>
+                </table><br><br>
+
+              </div>
+            </div>
+
+            <div *ngIf="marked3">
+              <div style="text-align: center">
+                <h4>There is not any completed project</h4>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
         </div>
+
       </div>
 
-      <div *ngIf="marked1">
-        <div style="text-align: center">
-          <h4>There is not any current project</h4>
-        </div>
+      <div *ngIf="!marked">
+        <app-add-project></app-add-project>
       </div>
 
     </div>
 
-
-    <div class="col mx-auto">
-      <h2 class="text-center">Confirmed projects</h2>
-
-      <br><br>
-      <div *ngIf="!marked2">
-        <div *ngFor="let Conproject of Conf_projects">
-          <table>
-            <tr>
-              <td><b>{{ Conproject?.project.project_name }}</b></td>
-              <td><button (click)="onClick( Conproject.project.id )">
-                  View more
-                </button></td>
-            </tr>
-          </table><br><br>
-
-        </div>
-      </div>
-
-      <div *ngIf="marked2">
-        <div style="text-align: center">
-          <h4>There is not any confirmed project</h4>
-        </div>
-      </div>
-    </div>
-  
-
-    <div class="col mx-auto">
-      <h2 class="text-center">Completed projects</h2>
-
-      <br><br>
-      <div *ngIf="!marked3">
-        <div *ngFor="let Comproject of Comp_projects">
-          <table>
-            <tr>
-              <td><b>{{ Comproject?.project.project_name }}</b></td>
-              <td><button (click)="onClick( Comproject.project.id )">
-                  View more
-                </button></td>
-            </tr>
-          </table><br><br>
-
-        </div>
-      </div>
-
-      <div *ngIf="marked3">
-        <div style="text-align: center">
-          <h4>There is not any completed project</h4>
-        </div>
-      </div>
-    </div>
   </div>
-
 </div>
-
-<div *ngIf="!marked">
-  <app-add-project></app-add-project>
+<div *ngIf="!wholeMarked">
+  <app-view-project></app-view-project>
 </div>
-
-</div>
-
-</div></div>
-<div *ngIf="!wholeMarked"><app-view-project></app-view-project></div>
 
 <div class="container">
