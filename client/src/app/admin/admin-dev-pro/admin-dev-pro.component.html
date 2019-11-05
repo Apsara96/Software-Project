@@ -1,0 +1,50 @@
+
+
+<div class="container">
+
+  <button (click)="BackToHome()">&lt;&lt;&lt;Back to Home</button>
+
+  <div class="col-md-6 mx-left">
+    <h1 class="text-center">PROFILE</h1>
+  </div>
+  <img src="{{authHome.img_link}}{{ developer?.profile_img }}"  width="150px" heigt="150px">
+ 
+
+  <table class="table col-md-6 mx-left">
+    <tr>
+      <td>Fist Name</td>
+      <td>{{ developer?.first_name }}</td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td>{{ developer?.last_name }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{ developer?.email }}</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>{{ developer?.gender }}</td>
+    </tr>
+    <tr>
+      <td>contact number</td>
+      <td>{{ developer?.contact_no }}</td>
+    </tr>
+  </table>
+
+
+    <div class="col-md-6 mx-left" *ngIf="developer?.user_type=='Developer'">
+      <h1 class="text-center">Technologies</h1>
+    </div>
+    <table class="table col-md-6 mx-left">
+      <div *ngFor="let techno of technos">
+        <tr>{{ techno?.technology }}</tr>
+      </div>
+
+    </table>
+    
+
+   
+
+</div>

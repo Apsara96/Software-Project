@@ -17,5 +17,12 @@
     border:2px solid #0e0005; 
     width: 70%;
 }
-
-  
+.thead{
+    background-color: #730099;
+}
+th{
+    color: white;
+}
+.checked {
+    color: orange;
+  }

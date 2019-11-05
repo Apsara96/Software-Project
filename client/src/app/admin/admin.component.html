@@ -2,14 +2,20 @@
 <div class="container text-center">    
   <br><br><br>
   <div class="row">
-    <div class="col-sm-5">
+    <div style=" box-shadow: 0px 1px 5px 2px rgb(161, 158, 158);padding-bottom: 3%;" class="col-sm-5">
      <h1>Number of developers</h1><br><h1>{{devcount}}</h1>
-     
+     <button (click)="showDev(1)" class="btn btn-primary">Manage Developers ->></button>
     </div>
     <div class="col-sm-1"> </div>
-    <div class="col-sm-5"> 
+    <div style=" box-shadow: 0px 1px 5px 2px rgb(161, 158, 158);padding-bottom: 3%;" class="col-sm-5"> 
       <h1>Number of clients</h1><br><h1>{{clicount}}</h1>
+      <button (click)="showCli(2)" class="btn btn-primary">Manage Clients ->></button>
     </div>
     
   </div>
-</div><br>
+  
+  
+    </div>
+ 
+ 
+

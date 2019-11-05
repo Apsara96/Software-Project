@@ -1,17 +1,17 @@
-
-
-<div class="container text-center">    
+<div *ngIf="marked">
+  <div class="container text-center">
     <br><br><br>
     <div class="row">
       <div class="col-sm-12">
         <table class="table">
-          <thead class="thead-dark">
+          <thead class="thead">
             <tr>
               <th>Name</th>
               <th>User Type</th>
               <th>Email</th>
               <th>Rating</th>
               <th>Current status</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -20,47 +20,72 @@
               <td>{{ user?.first_name }} {{ user?.last_name }}</td>
               <td>{{ user?.user_type }}</td>
               <td>{{ user?.email }}</td>
-              <td>{{ user?.rating }}</td>
-              <th *ngIf="user?.isActivated">Active </th><th *ngIf="!user?.isActivated">Baned</th>  
-              <th *ngIf="user?.isActivated"><button class="btn-act" (click)="banedUser(user.email)" >baned user</button ></th>
-                <th *ngIf="!user?.isActivated"><button class="btn-baned" (click)="activateUser(user.email)">Activate user</button>
+              <td>
+
+                <p *ngIf="user?.rating < 0.5">
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                </p>
+                <p *ngIf="user?.rating >= 0.5 && user?.rating  < 1.5">
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                </p>
+                <p *ngIf="user?.rating >= 1.5 && user?.rating < 2.5">
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                </p>
+                <p *ngIf="user?.rating>= 2.5 && user?.rating < 3.5">
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                </p>
+                <p *ngIf="user?.rating >= 3.5 && user?.rating < 4.5">
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                </p>
+                <p *ngIf="user?.rating >= 4.5 && user?.rating <= 5">
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star checked "></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                </p>
+
+              </td>
+              <td *ngIf="user?.isActivated">Active </td>
+              <td *ngIf="!user?.isActivated">Baned</td>
+              <th *ngIf="user?.isActivated"><button class="btn-act" (click)="banedUser(user.email)">ban user</button>
               </th>
-              
+              <th *ngIf="!user?.isActivated"><button class="btn-baned" (click)="activateUser(user.email)">Activate
+                  user</button>
+              </th>
+              <td><button type="button" class="btn btn-primary" (click)="view(user.id)">
+                  View Profile
+                </button></td>
+
             </tr>
           </tbody>
         </table>
-       
+
       </div>
+    </div>
+  </div>
+</div>
 
-
-    <div class="container text-center">    
-        <br><br><br>
-        <div class="row">
-          <div class="col-sm-12">
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Name</th>
-                  <th>User Type</th>
-                  <th>Email</th>
-                  <th>Rating</th>
-                  <th>Current status</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody *ngFor="let user of detail">
-                <tr>
-                  <td>{{ user?.first_name }} {{ user?.last_name }}</td>
-                  <td>{{ user?.user_type }}</td>
-                  <td>{{ user?.email }}</td>
-                  <td>{{ user?.rating }}</td>
-                  <th *ngIf="user?.isActivated">Active </th><th *ngIf="!user?.isActivated">Baned</th>  
-                  <th *ngIf="user?.isActivated"><button class="btn-act" (click)="banedUser(user.email)" >baned user</button ></th>
-                    <th *ngIf="!user?.isActivated"><button class="btn-baned" (click)="activateUser(user.email)">Activate user</button>
-                  </th>
-                  
-                </tr>
-              </tbody>
-            </table>
-           
-          </div>
+<div *ngIf="!marked">
+  <app-admin-dev-pro></app-admin-dev-pro>
+</div>

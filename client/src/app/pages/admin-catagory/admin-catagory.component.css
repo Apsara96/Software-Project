@@ -30,3 +30,141 @@ ul.down{
     .active {
       background-color: #4CAF50;
     }
+
+    
+ul.down{
+  background-color:white;
+  
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    font-family: Teko;
+    font-size: 125%;
+    font-weight: 150%;
+    display: block;
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+ 
+  li a:hover:not(.active) {
+    font-weight: 200%;
+    font-size: 150%;
+    border-color: aqua;;
+  }
+  
+
+
+
+
+
+  .notification {
+  
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  
+  
+  
+  .notification .badge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+  }
+  .back1{
+    background-color: #730099;
+    height: 60px;
+    box-shadow: 0px 1px 5px 2px rgb(252, 251, 251);
+  }
+  .back2{
+    background-color: #730099;
+    height: 60px;
+  }
+ .imag{
+   width: 80px;
+   margin-right:7%;
+   margin-top: -17px;
+ }
+.a{
+  margin-top:0px;
+  margin-left: 2%;
+}
+.logout{
+  width: 100px;
+  height: 30px;
+ 
+  margin: 5px 2px 2px 10px;
+  color: white;
+  float: right;
+  margin-right: 40px;
+  margin-top:4px;
+  border-radius: 5%;
+  box-shadow: 0px 1px 5px 2px rgb(252, 251, 251);
+  
+}
+.logoutn{
+  width: 100px;
+  height: 30px;
+ 
+  margin: 5px 2px 2px 10px;
+  color: red;
+  margin-left: 74%;
+  margin-top:-25px;
+  border-radius: 5%;
+  box-shadow: 0px 1px 5px 2px rgb(252, 251, 251);
+  
+}
+.logout:hover{
+  background-color: blueviolet;
+}
+a{
+  color:white;
+  margin-right:3%;
+  font-size: 130%;
+  border-color:  white;
+  border-width: 2px;;
+ 
+}
+.pic{
+  border-radius: 100%;
+  background-color: white;
+  width: 35px;
+  height:35px;
+
+}
+.pic:hover{
+  width: 40px;
+  height:40px;
+  border-radius: 100%;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+

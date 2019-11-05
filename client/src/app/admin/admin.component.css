@@ -1,3 +1,24 @@
 .colColor{
     background:whitesmoke;
 }
+.btn-act{
+    background-color: greenyellow;
+    width: 70%;
+}
+.btn-baned{
+    background-color: red;
+    width: 70%;
+    
+}
+.btn-act:hover{
+    background-color: rgb(151, 247, 8);
+    border:2px solid #0e0005; 
+   
+}
+.btn-baned:hover{
+    background-color: rgb(248, 93, 93);
+    border:2px solid #0e0005; 
+    width: 70%;
+}
+
+  
