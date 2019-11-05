@@ -1,4 +1,4 @@
-
+<div style="background-color: #e3d5f3;">
 <div *ngIf="marked">
 
 <div class="viewmore" *ngIf="marked"> <a style=" color: red; margin: 2px 4px 2px 4px ;" routerLink="/devCatagory/home">
@@ -11,7 +11,8 @@
                     src="{{authHome.img_link}}{{ item?.user.profile_img }}" alt="Card image cap"></div>
                 <h4 class="card-title">{{item?.project_name}}</h4>
                 <p class="card-text">By {{item?.user.first_name}} {{item?.user.last_name}}</p>
-                <h5 class="card-title" style="color:red">Rs {{item?.payment}}.00</h5>
+                <h5 class="card-title" style="color:red" *ngIf="item.payment">Rs {{item?.payment}}.00</h5>
+                <h5 class="card-title" style="color:blue" *ngIf="item.payment == ''">Bid</h5>
                 <p class="card-text" *ngIf="item?.user.rating < 0.5" class="card-text">
                   <span class="fa fa-star "></span>
                   <span class="fa fa-star"></span>
@@ -66,4 +67,6 @@
 </div>
 <div *ngIf="!marked">
   <app-view-more-project></app-view-more-project>
+</div>
+
 </div>

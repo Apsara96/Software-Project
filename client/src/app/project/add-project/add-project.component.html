@@ -7,26 +7,32 @@
       <div class="col-md-5">
         <div class="row" style="margin-top: 100px;box-shadow: -1px 1px 25px 10px rgb(77, 47, 47);">
           <div class="col-md-12">
-            <form (submit)="AddProject()" >
+
+            <form #userForm="ngForm" name="userForm" (submit)="AddProject()" >
+
               <label class="label control-label">Project Name</label>
               <input type="text" class="form-control" name="project_name" placeholder="Enter suitable project name"
-                [(ngModel)]="credentials.project_name">
+                [(ngModel)]="credentials.project_name"  required #name="ngModel" [class.is-invalid]="name.invalid && name.touched">
+                <div class="alert_msg" >
+                    <small class="text-danger" *ngIf="name.invalid && name.touched">Project name is required</small>
+                  </div>
+
               <label class="label control-label">Project Category</label>
-              <select class="form-control" name="project_category" [(ngModel)]="credentials.project_category">
-                <option>Web development</option>
-                <option>Mobile development</option>
-                <option>Data science</option>
-                <option>Software development</option>
-                <option>Block chain</option>
-                <option>Machine learning</option>
-                <option>Natural language processing</option>
-                <option>Digital marketing</option>
-                <option>Multimedia designing</option>
-                <option>Robotics</option>
+
+              <select class="form-control"  name="project_category" [(ngModel)]="credentials.project_category">
+                <option *ngFor="let cat of catagory" >
+                    {{ cat }}
+                </option>
+
               </select>
+
               <label class="label control-label">Project Description</label>
               <textarea rows="8" cols="50" name="project_description"
-                [(ngModel)]="credentials.project_description"></textarea>
+                [(ngModel)]="credentials.project_description" required #desc="ngModel" [class.is-invalid]="desc.invalid && desc.touched">
+              </textarea>
+              <div class="alert_msg" >
+                  <small class="text-danger" *ngIf="desc.invalid && desc.touched">Description is required</small>
+                </div>
 
               <label class="label control-label">Attachment</label>
               <input type="file" class="form-control" name="attach" accept=".pdf" (change)="onFileSelected($event)">
@@ -39,19 +45,26 @@
                 <br>
                 <label class="label control-label">Fixed price</label>
                 <input type="text" class="form-control" name="payment" placeholder="Payment for the service"
-                  [(ngModel)]="credentials.payment">
-              </div>
+                  [(ngModel)]="credentials.payment"  required #fix="ngModel" [class.is-invalid]="fix.invalid && fix.touched">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="fix.invalid && fix.touched">Payment amount is required</small>
+                    </div>
+                </div>
+              
 
               <div *ngIf="marked2">
                 <br>
                 <label class="label control-label">Maximum bid value</label>
                 <input type="text" class="form-control" name="max_value" placeholder="Maximum bid value"
-                  [(ngModel)]="credential.maximum_value">
+                  [(ngModel)]="credential.maximum_value" required #bid="ngModel" [class.is-invalid]="bid.invalid && bid.touched">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="bid.invalid && bid.touched">Payment amount is required</small>
+                    </div>
               </div>
 
               <br>
               <div *ngIf="marked3">
-                <button type="submit" class="btn btn-info">Post the project</button>
+                <button *ngIf="!userForm.form.invalid" type="submit" [disabled]="userForm.form.invalid" class="btn btn-info">Post the project</button>
               </div>
 
               <br><br>

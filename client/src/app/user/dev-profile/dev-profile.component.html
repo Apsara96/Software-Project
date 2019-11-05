@@ -1,10 +1,12 @@
+<div  style="background-color: #e3d5f3;">
+
 <div class="container">
   <br>
   <div class="row">
 
     <div class="col mx-auto">
 
-      <img src="http://localhost:3000/{{ details?.profile_img}}" width="30%" height="30%" class="img1"><br>
+      <img src="http://localhost:3000/{{ details?.profile_img}}" width="200px" height="200px" class="img1"><br>
       <label><img src="assets/img/cam2.png" width="10%" height="10%" class="img2" />
         <input type="file" name="profile_image" accept="image/*" (change)="onFileSelected($event)">
       </label>
@@ -236,4 +238,7 @@
 
     </div>
   </div>
+</div>
+
+
 </div>

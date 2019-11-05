@@ -5,16 +5,16 @@ input[type="file"] {
 .img1
 	{
 		position: relative;
-		top: 25%;
-        left: 30%;
+		top: 10%;
+        left: 50px;
         border-radius:100%;
     
 	}
 	.img2
 	{
 		position: absolute;
-		top: 60%;
-        left: 68%;
+		top: 65%;
+        left: 250px;
         border-radius:100%;
 	}
 	.info

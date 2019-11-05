@@ -61,5 +61,14 @@ export class CliRegisterComponent implements OnInit {
   }
 
 
+  checkPwd(){
+    if(this.credentials.password.length < 6){
+      return true
+    }else{
+      return false
+    }
+  }
+
+
 
 }
