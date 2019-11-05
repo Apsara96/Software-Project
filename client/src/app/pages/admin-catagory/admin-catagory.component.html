@@ -1,14 +1,32 @@
-<ul class="down">
+<!--<ul class="down">
   <li><img src="assets/img/logo.png" height="51px" width="100px"></li>
   <li><a routerLink="/adminCatagory/home">Home</a></li>
-  <li><a routerLink="/adminCatagory/baned_users">User management</a></li>
-  <li><a routerLink="/adminCatagory/competition">Competions</a></li>
-  <li><a routerLink="/adminCatagory/add_ads">Advertisement</a></li>
+ 
   <li  style="float:right"><a href="/home/login" class="active" (click)="logout()">Log Out</a></li>
 
-</ul>
+</ul>-->
+
+<div class="back1">
+
+  <div class="a">
+       <img class="imag" src="assets/img/logo.png">
+       <a routerLink="/adminCatagory/home">Admin Home</a>
+      
+
+       <a href="/home/login" (click)="logout()">
+            <div class="logout" style="text-align: center;"><b>Log Out</b></div>
+       </a>
+
+      
+     
+
+
+
+  </div>
+</div>
+
+
 
 
 <div *ngIf='type =="home"'><app-admin></app-admin></div>
 <div *ngIf='type =="baned_users"'><app-baned-users></app-baned-users></div>
-<div *ngIf='type =="add_ads"'><app-add-ads></app-add-ads></div>

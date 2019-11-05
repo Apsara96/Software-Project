@@ -12,8 +12,14 @@ import { AuthAdminService } from './auth-admin.service';
 export class AdminComponent implements OnInit {
  devcount
  clicount
-  
+ AllUsers
+ banedDetails={
+  banedEmail:''
+}
+type
   constructor(private auth: AuthenticationService, private router: Router,private http: HttpClient,private authAdm: AuthAdminService) { }
+   showD=false
+   showC=false
 
   ngOnInit() {
   if(localStorage.getItem('usertoken'))
@@ -33,5 +39,21 @@ export class AdminComponent implements OnInit {
    this.router.navigateByUrl('/')
  }
   }
+ 
+  showDev(ty){
+    this.showD=true
+   this.showC=false
+   this.type=ty
+   this.router.navigate(['/adminCatagory/baned_users'],{queryParams:{xx:this.type}})
+  }
+  showCli(ty){
+    this.showD=false
+   this.showC=true
+   this.type=ty
+   this.router.navigate(['/adminCatagory/baned_users'],{queryParams:{xx:this.type}})
+
+  }
+ 
+  
 
 }
