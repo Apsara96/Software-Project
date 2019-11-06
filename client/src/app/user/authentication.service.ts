@@ -108,6 +108,8 @@ export class AuthenticationService {
   private token: string
 
   constructor(private http: HttpClient, private router: Router) {}
+  
+  img_link = "http://localhost:3000/"
 
   private saveToken(token: string): void {
     localStorage.setItem('usertoken', token)
