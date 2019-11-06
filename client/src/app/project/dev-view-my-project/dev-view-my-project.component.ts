@@ -203,6 +203,7 @@ export class DevViewMyProjectComponent implements OnInit {
 sendRate(){
 
   this.rateDetails.rating = this.rateValue
+  this.rateDetails.dev_Id = this.model.client_ID
 
   console.log(this.rateDetails);
   this.authPro.send_rate(this.rateDetails).subscribe((res)=>{
