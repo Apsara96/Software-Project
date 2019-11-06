@@ -1,8 +1,12 @@
 const rating = require('../models/rating')
 const user = require('../models/User')
 const cliFeedback = require('../models/cli_feedback')
+const devFeedback = require('../models/dev_feedback')
+const Project = require('../models/Project')
+const Conf_pro = require('../models/Confirmed_project')
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op;
+const jwt = require("jsonwebtoken")
 //newRating
 exports.rateUser = (req,res)=>{
 
@@ -50,9 +54,49 @@ exports.sendFeedback = (req,res)=>{
 
     cliFeedback.create(feedbackData)
     .then(feedback=>{
+
+        Project.update({
+            isCompleted: true
+        },{
+            where:{
+                id:req.body.project_ID
+            }
+        })
+
+        Conf_pro.update({
+            isCompleted:true
+        },{
+            where:{
+                project_ID:req.body.project_ID
+            }
+        })
+
         res.json({success:1})
     })
     .catch(err =>{
         res.send('error:'+err)
     })
 }
+
+
+exports.getFeedback = (req,res)=>{
+
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+    user.hasMany(cliFeedback,{ foreignKey: 'client_ID'})
+    cliFeedback.belongsTo(user,{foreignKey:'client_ID'})
+
+    cliFeedback.findAll({
+        where:{
+            developer_ID:decoded.id
+        },include:[user]
+    })
+    .then(feedback=>{
+        res.json(feedback)
+    })
+    .catch(err =>{
+        res.send('error:'+err)
+    })
+}
+
+

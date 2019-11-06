@@ -26,10 +26,17 @@
     <div *ngIf="!fixPro?.isAccepted">
         <button  (click)="cancleRequest()">Cancle request</button>
     </div>
+
+
+    <div *ngIf="fixPro?.project.isCompleted">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Rate
+    </button>
+  </div>
+
     </div>
 
     <div class="col-md-6">
-        <div id="example1">
     <img src="http://localhost:3000/{{ fixPro?.project?.user.profile_img }}" width="200px" height="200px">
 
     <table class="table col-md-6 mx-left">
@@ -55,7 +62,6 @@
         <td>{{ fixPro?.project?.user.contact_no }}</td>
       </tr>
     </table>
-    </div>
   </div>
   </div>
 </div>
@@ -89,6 +95,12 @@
         <button  (click)="deleteBid()"style="margin-left:5%">Delete the bid</button>
     </form>
   </div>
+  </div>
+
+  <div *ngIf="bidPro?.project.isCompleted">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      Rate
+  </button>
   </div>
   </div>
 
@@ -145,11 +157,21 @@
         <td>{{ recPro?.project?.payment }}</td>
       </tr>
     </table>
+
+    <div *ngIf="recPro?.project.isCompleted">
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Rate
+    </button>
+
+  </div>
+
+
     </div>
 
     <div class="col-md-6">
 
-        <div id="example1">
+      <div id="example1">
     <img src="http://localhost:3000/{{ recPro?.project?.user.profile_img }}" width="200px" height="200px">
   
 
@@ -177,11 +199,103 @@
       </tr>
 
     </table>
-
-        </div>
-
     </div>
   </div>
+</div>
+
+</div>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+
+                        <div *ngIf="set1">
+                          <h5 class="modal-title" *ngIf="rateValue === 0" id="exampleModalLongTitle" style="color:red">
+                            Please
+                            rate me</h5>
+                          <h5 class="modal-title" *ngIf="rateValue !== 0" id="exampleModalLongTitle"
+                            style="color:green">
+                            Thanks
+                            for rating me!</h5>
+                        </div>
+
+                        <div *ngIf="!set1">
+                          <b style="color: red"> Give your comment here:</b>
+                        </div>
+
+
+                      </div>
+                      <div class="modal-body">
+                        <div *ngIf="set1">
+                          <p *ngIf="rateValue===0" class="card-text">
+                            <span (click)="rate(1)" class="fa fa-star "></span>
+                            <span (click)="rate(2)" class="fa fa-star"></span>
+                            <span (click)="rate(3)" class="fa fa-star "></span>
+                            <span (click)="rate(4)" class="fa fa-star "></span>
+                            <span (click)="rate(5)" class="fa fa-star"></span>
+                          </p>
+                          <p *ngIf="rateValue===1" class="card-text">
+                            <span (click)="rate(1)" class="fa fa-star checked "></span>
+                            <span (click)="rate(2)" class="fa fa-star"></span>
+                            <span (click)="rate(3)" class="fa fa-star "></span>
+                            <span (click)="rate(4)" class="fa fa-star "></span>
+                            <span (click)="rate(5)" class="fa fa-star"></span>
+                          </p>
+                          <p *ngIf="rateValue===2" class="card-text">
+                            <span (click)="rate(1)" class="fa fa-star checked "></span>
+                            <span (click)="rate(2)" class="fa fa-star checked "></span>
+                            <span (click)="rate(3)" class="fa fa-star "></span>
+                            <span (click)="rate(4)" class="fa fa-star "></span>
+                            <span (click)="rate(5)" class="fa fa-star"></span>
+                          </p>
+                          <p *ngIf="rateValue===3" class="card-text">
+                            <span (click)="rate(1)" class="fa fa-star checked "></span>
+                            <span (click)="rate(2)" class="fa fa-star checked "></span>
+                            <span (click)="rate(3)" class="fa fa-star checked"></span>
+                            <span (click)="rate(4)" class="fa fa-star "></span>
+                            <span (click)="rate(5)" class="fa fa-star"></span>
+                          </p>
+                          <p *ngIf="rateValue===4" class="card-text">
+                            <span (click)="rate(1)" class="fa fa-star checked "></span>
+                            <span (click)="rate(2)" class="fa fa-star checked "></span>
+                            <span (click)="rate(3)" class="fa fa-star checked"></span>
+                            <span (click)="rate(4)" class="fa fa-star checked"></span>
+                            <span (click)="rate(5)" class="fa fa-star"></span>
+                          </p>
+                          <p *ngIf="rateValue===5" class="card-text">
+                            <span (click)="rate(1)" class="fa fa-star checked "></span>
+                            <span (click)="rate(2)" class="fa fa-star checked "></span>
+                            <span (click)="rate(3)" class="fa fa-star checked"></span>
+                            <span (click)="rate(4)" class="fa fa-star checked"></span>
+                            <span (click)="rate(5)" class="fa fa-star checked"></span>
+                          </p>
+
+                        </div>
+
+                        <div *ngIf="!set1">
+                          <!-- <ckeditor [(ngModel)]="model.editorData"></ckeditor> -->
+                          <textarea rows="8" cols="50" [(ngModel)]="model.editorData"></textarea>
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <div *ngIf="set1">
+                          <button (click)="sendRate()" type="button" class="btn btn-primary">Rate</button>
+                        </div>
+                        <div *ngIf="!set1">
+                          <button (click)="sendFeedback()" type="button" class="btn btn-primary"
+                            data-dismiss="modal">Give feedback</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
 </div>
 
 </div>

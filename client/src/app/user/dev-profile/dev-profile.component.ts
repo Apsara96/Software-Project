@@ -48,6 +48,7 @@ export class DevProfileComponent implements OnInit {
     id: 0,
     email: ''
   }
+  feedback: any;
   
 
   constructor(private auth: AuthenticationService, private router: Router) { }
@@ -108,6 +109,15 @@ export class DevProfileComponent implements OnInit {
         this.password = result.password
       }
     )
+
+
+    this.auth.devGetFeedback().subscribe(
+      result=>{
+        this.feedback = result
+        console.log(result)
+      }
+    )
+
   }
 
 
@@ -200,6 +210,9 @@ export class DevProfileComponent implements OnInit {
     )  
 
   }
+
+
+
 
 
 }

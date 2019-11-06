@@ -313,6 +313,11 @@ export class AuthenticationService {
     return this.http.post(`/users/updateEmail`, details)
   }
 
+  public devGetFeedback():Observable<any>{
+    return this.http.get(`/users/rating/devgetFeedback`,{
+      headers: { Authorization: ` ${this.getToken()}` }
+      })
+  }
 
 
 }

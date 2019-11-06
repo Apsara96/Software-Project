@@ -200,7 +200,7 @@ export class AuthProjectService {
   }
 
   public send_feedback(feedbackDetails){
-    return this.http.post(`/users/rating/giveFeedback`,feedbackDetails)
+    return this.http.post(`/users/rating/cligiveFeedback`,feedbackDetails)
   }
 
 }

@@ -56,6 +56,8 @@ export class DevViewMyProjectComponent implements OnInit {
     isAccepted: false
   }
 
+  set1 = true
+
   ngOnInit() {
 
     this.requestProject.developer_ID=this.auth.getUserDetails().id
@@ -167,6 +169,11 @@ export class DevViewMyProjectComponent implements OnInit {
 
   }
 
+}
+
+
+sendRate(){
+  this.set1 = false
 }
 
 }
