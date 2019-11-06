@@ -48,6 +48,7 @@
 
               <div *ngIf="projects?.isShowed"><button (click)="onClick( )">Edit project</button>
                 <button (click)="deleteProject( )">Delete project</button>
+  
 
                 <br><br>
               </div>
@@ -154,15 +155,15 @@
 
 
               </div>
-            </div>
-
-            <div class="col">
 
 
               <div *ngIf="!projects?.isShowed && projects?.isCompleted">
                 <div style="color: blue"><b>Completed by:</b> {{ acceptance.first_name }} {{ acceptance.last_name}}
                 </div>
               </div>
+            </div>
+
+            <div class="col">
 
               <br><br>
 

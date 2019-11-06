@@ -335,8 +335,9 @@ export class ViewProjectComponent implements OnInit {
     this.model.project_ID =this.proHome.projectDetails.project_ID
 
     this.authpro.send_feedback(this.model).subscribe(
-      (res) => {
+      result => {
         this.set1 = true
+        window.location.reload()
       },
       err => {
         console.error(err);

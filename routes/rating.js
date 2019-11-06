@@ -5,7 +5,9 @@ const con_rating = require('../controllers/rating');
 
 rating.post('/rating/rateUser',con_rating.rateUser)
 
-rating.post('/rating/giveFeedback', con_rating.sendFeedback)
+rating.post('/rating/cligiveFeedback', con_rating.sendFeedback)
+
+rating.get('/rating/devgetFeedback', con_rating.getFeedback)
 
 
 rating.use(cors())
