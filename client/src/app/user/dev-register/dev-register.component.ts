@@ -12,7 +12,7 @@ export class DevRegisterComponent implements OnInit {
   marked = true
   precontact_no = '';
   postcontact_no = '';
-
+  load = false
   credentials: TokenPayload = {
     id: 0,
     first_name: '',
@@ -60,6 +60,9 @@ export class DevRegisterComponent implements OnInit {
       return false;
     }
   }
+  loadSpin(){
+    this.load=true
+  } 
 
   checkPwd(){
     if(this.credentials.password.length < 6){

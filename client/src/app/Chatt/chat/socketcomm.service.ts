@@ -99,5 +99,9 @@ export class SocketcommService implements OnInit{
  public deleteMsg(id){
    return this.http.post('/users/Chat/deleteMsg',id)
  }
+ 
+ public chatNotification(id){
+   return this.http.post('/users/chat/notification',id)
+ }
 
 }

@@ -31,7 +31,7 @@ export class AddProjectComponent implements OnInit {
   project_details: ProjectPayload
   bid_details: BidPayload
   attach: File = null
-
+  load=false
   ngOnInit() {
   }
 
@@ -143,5 +143,7 @@ export class AddProjectComponent implements OnInit {
     this.proHome.marked = true
   }
 
-
+  loadSpin(){
+    this.load=true
+  } 
 }

@@ -72,6 +72,19 @@ exports.countMsgs = (req,res) =>{
   
 
 }
+exports.countNoti = (req,res)=>{
+    chat.count({
+        where:{
+            to_id: req.body.id,
+            isViewed: false
+        }
+    }).then(result=>{
+        res.json(result)
+        console.log(req.body.id+':count:'+result)
+    }).catch(err=>{
+        console.log("error:"+err)
+    })
+}
 
 exports.updateIsViewed = (req,res) =>{
     
