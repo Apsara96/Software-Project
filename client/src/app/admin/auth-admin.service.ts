@@ -10,7 +10,7 @@ import { AuthenticationService } from '../user/authentication.service';
 export class AuthAdminService {
 
   constructor(private http: HttpClient, private router: Router) { }
-
+  img_link = "http://localhost:3000/"
   //send data to the backend
 
   public allClients(){

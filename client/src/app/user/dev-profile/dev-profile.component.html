@@ -6,7 +6,7 @@
 
     <div class="col mx-auto">
 
-      <img src="http://localhost:3000/{{ details?.profile_img}}" width="200px" height="200px" class="img1"><br>
+      <img src="{{auth.img_link}}{{ details?.profile_img}}" width="200px" height="200px" class="img1"><br>
       <label><img src="assets/img/cam2.png" width="50px" height="50px" class="img2" />
         <input type="file" name="profile_image" accept="image/*" (change)="onFileSelected($event)">
       </label>

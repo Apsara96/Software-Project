@@ -60,7 +60,7 @@ export class AuthProjectService {
   
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthenticationService) { }
-
+  img_link = "http://localhost:3000/"
   public uploadAttachment(fd): Observable<any> {
     return this.http.post(`/users/project/attachment`, fd)
   }

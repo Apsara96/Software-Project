@@ -14,7 +14,7 @@ export class SocketcommService implements OnInit{
   constructor(private http: HttpClient, private router: Router) { }
  
   private socket = io("http://localhost:3000");
-
+  img_link = "http://localhost:3000/"
 
   ngOnInit(){
 

@@ -37,7 +37,8 @@
     </div>
 
     <div class="col-md-6">
-    <img src="http://localhost:3000/{{ fixPro?.project?.user.profile_img }}" width="200px" height="200px">
+        <div id="example1">
+    <img src="{{auth.img_link}}{{ fixPro?.project?.user.profile_img }}" width="200px" height="200px">
 
     <table class="table col-md-6 mx-left">
       <th>About the client</th>
@@ -107,7 +108,7 @@
   <div class="col-md-6">
 
     <div id="example1">
-        <img src="http://localhost:3000/{{ bidPro?.project?.user.profile_img }}" width="200px" height="200px">
+        <img src="{{auth.img_link}}{{ bidPro?.project?.user.profile_img }}" width="200px" height="200px">
         <table class="table  mx-left">
             <th>About the client</th>
             <tr>
@@ -171,8 +172,8 @@
 
     <div class="col-md-6">
 
-      <div id="example1">
-    <img src="http://localhost:3000/{{ recPro?.project?.user.profile_img }}" width="200px" height="200px">
+        <div id="example1">
+    <img src="{{auth.img_link}}{{ recPro?.project?.user.profile_img }}" width="200px" height="200px">
   
 
     <table class="table col-md-6 mx-left">
