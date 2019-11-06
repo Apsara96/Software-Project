@@ -13,7 +13,7 @@ input[type="file"] {
 	.img2
 	{
 		position: absolute;
-		top: 20%;
+		top: 150px;
         left: 150px;
         border-radius:100%;
 	}

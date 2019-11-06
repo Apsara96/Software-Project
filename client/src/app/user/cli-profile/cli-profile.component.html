@@ -169,6 +169,20 @@
         </div>
 
 
+        <h2><b>Feedbacks</b></h2>
+
+          <div *ngFor="let feedbacks of feedback">
+              <div class="card w-75">
+                  <div class="card-body">
+                    <h5 class="card-title">{{feedbacks?.feedback }}</h5>
+                    <p class="card-text">{{feedbacks?.user.first_name}} {{feedbacks?.user.last_name}}</p>
+                  </div>
+                </div>
+        
+                
+          </div>
+
+
 
     </div>
   </div>

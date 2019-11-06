@@ -100,3 +100,42 @@ exports.getFeedback = (req,res)=>{
 }
 
 
+exports.devsendFeedback = (req,res)=>{
+
+    feedbackData = {
+        project_ID: req.body.project_ID,
+        client_ID: req.body.client_ID,
+        developer_ID: req.body.developer_ID,
+        feedback: req.body.editorData
+    }
+
+    devFeedback.create(feedbackData)
+    .then(feedback=>{
+        res.json({success:1})
+    })
+    .catch(err =>{
+        res.send('error:'+err)
+    })
+}
+
+
+
+exports.cligetFeedback = (req,res)=>{
+
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+    user.hasMany(devFeedback,{ foreignKey: 'developer_ID'})
+    devFeedback.belongsTo(user,{foreignKey:'developer_ID'})
+
+    devFeedback.findAll({
+        where:{
+            client_ID:decoded.id
+        },include:[user]
+    })
+    .then(feedback=>{
+        res.json(feedback)
+    })
+    .catch(err =>{
+        res.send('error:'+err)
+    })
+}

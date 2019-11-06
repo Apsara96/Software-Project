@@ -203,4 +203,8 @@ export class AuthProjectService {
     return this.http.post(`/users/rating/cligiveFeedback`,feedbackDetails)
   }
 
+  public dev_send_feedback(feedbackDetails){
+    return this.http.post(`/users/rating/devgiveFeedback`,feedbackDetails)
+  }
+
 }

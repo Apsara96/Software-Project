@@ -320,6 +320,13 @@ export class AuthenticationService {
   }
 
 
+  public cliGetFeedback():Observable<any>{
+    return this.http.get(`/users/rating/cligetFeedback`,{
+      headers: { Authorization: ` ${this.getToken()}` }
+      })
+  }
+
+
 }
 
 

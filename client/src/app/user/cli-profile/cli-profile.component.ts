@@ -41,6 +41,7 @@ export class CliProfileComponent implements OnInit {
     id: 0,
     email: ''
   }
+  feedback: any;
   
 
   constructor(private auth: AuthenticationService, private router: Router) {}
@@ -64,6 +65,14 @@ export class CliProfileComponent implements OnInit {
     this.auth.getPassword().subscribe(
       result=>{
         this.password = result.password
+      }
+    )
+
+
+    this.auth.cliGetFeedback().subscribe(
+      result=>{
+        this.feedback = result
+        console.log(result)
       }
     )
 

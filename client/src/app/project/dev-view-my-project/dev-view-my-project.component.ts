@@ -58,6 +58,24 @@ export class DevViewMyProjectComponent implements OnInit {
 
   set1 = true
 
+  rateSelect = false
+  rateValue = 0
+
+  rateDetails = {
+    dev_Id: 0,
+    rating :0
+  }
+
+
+  public model = {
+    editorData: '',
+    client_ID: 0,
+    project_ID: 0,
+    developer_ID: 0
+  }
+
+
+
   ngOnInit() {
 
     this.requestProject.developer_ID=this.auth.getUserDetails().id
@@ -74,6 +92,8 @@ export class DevViewMyProjectComponent implements OnInit {
         project =>{
           this.fixPro = project
           this.requestProject.project_ID = project.project.id
+          this.model.project_ID = project.project.id
+          this.model.client_ID = project.project.user.id
         }
       )
 
@@ -93,6 +113,11 @@ export class DevViewMyProjectComponent implements OnInit {
           this.viewdetails.client_ID = project.project.user.id
           this.viewdetails.project_ID = project.project.id
           this.viewdetails.developer_ID = this.auth.getUserDetails().id
+
+          this.rateDetails.dev_Id =project.project.user.id
+
+          this.model.project_ID = project.project.id
+          this.model.client_ID = project.project.user.id
         }
       )
 
@@ -107,6 +132,9 @@ export class DevViewMyProjectComponent implements OnInit {
       this.authPro.view_rec_pro(this.view_details).subscribe(
         project =>{
           this.recPro = project
+
+          this.model.project_ID = project.project.id
+          this.model.client_ID = project.project.user.id
         }
       )
     }
@@ -173,7 +201,34 @@ export class DevViewMyProjectComponent implements OnInit {
 
 
 sendRate(){
-  this.set1 = false
+
+  this.rateDetails.rating = this.rateValue
+
+  console.log(this.rateDetails);
+  this.authPro.send_rate(this.rateDetails).subscribe((res)=>{
+    console.log('rate respond:'+res);
+    this.set1 = false
+  })
+}
+
+rate(val){
+  this.rateValue=val;
+}
+
+sendFeedback(){
+
+  this.model.developer_ID = this.auth.getUserDetails().id
+
+  this.authPro.dev_send_feedback(this.model).subscribe(
+    result => {
+      this.set1 = true
+      window.location.reload()
+    },
+    err => {
+      console.error(err);
+    }
+  )
+  
 }
 
 }
